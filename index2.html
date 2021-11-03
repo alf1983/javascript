@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+            <title>Lesson2</title>
+        </head>
+        <body>
+            <script>
+                //пример 1
+                let a = 1, b = 1, c, d;
+                c = ++a;
+                alert(c); // ответ: 2
+                /*
+                Префиксная форма "++" возвращает результат увеличения на 1
+                и с становится 2
+                и а становится 2
+                */
+                //пример 2
+                d = b++;
+                alert(d); //ответ: 1
+                /*
+                Постфиксная форма "++" возвращает предыдущее значение увеличения на 1
+                и b становится 2
+                а d становится 1
+                */
+                //пример 3
+                c = 2 + ++a;
+                alert(c); //ответ: 5
+                /*
+                Как в примере 1 префиксная форма "++" возвращает результат увеличения на 1
+                т.е. после ++а a = 2(это а после примера 1) + 1 = 3
+                и к этому результату добавляется 2 2 + 3 = 5
+                */
+                //пример 4
+                d = 2 + b++;
+                alert(d); //ответ: 4
+                /*
+                Как в примере 2 постфиксная форма "++" возвращает результат до увеличения на 1
+                т.е. после b++ b = 2(это а после примера 2) + 1 = 3, а результат b++ = 2 ("предыдущая" b)
+                и к этому результату добавляется 2 2 + 2 = 4
+                */
+                alert(a); //3
+                alert(b); //3
+                /*
+                 после 2 увиличений на 1 a и b = 3
+                */
+            </script>
+            <script>
+                let a = 2;
+                let x = 1 + (a *= 2);
+                /*
+                 а = 4
+                 х = 5
+                 1. а = 2
+                 2. x = 1 + (a *= 2) т.е. сначала вычисляется правая часть.
+                    2.1 Действие в скобках эквивалентно a = a * 2
+                    а = 2 ("старое" значение а) * 2 = 4
+                    2.3 х = 1 + 4 = 5
+                */
+            </script>
+            <script>
+                var a = 5;
+                var b = -7;
+                if (a >= 0 && b >=0){
+                    console.log("a - b = " + (a - b));
+                } else if (a <= 0 && b <= 0){
+                    console.log ("a x b = " + (a * b));
+                } else {
+                    console.log ("a + b = " + (a + b));
+                }
+            </script>
+            <script>
+                function add(term1, term2){
+                    return term1 + term2;
+                }
+                function subtraction(minuend, subtrahend){
+                    return minuend - subtrahend;
+                }
+                function multiplication(factor1, factor2){
+                    return factor1 * factor2
+                }
+                function division(devident, divider){
+                    return devident / divider
+                }
+                function mathOperation(arg1, arg2, operation){
+                    switch(operation){
+                        case "+":
+                            return add(arg1, arg2);
+                        case "-":
+                            return division(arg1, arg2);
+                        case "*":
+                            return multiplication(arg1, arg2);
+                        case "/":
+                            return division(arg1, arg2);
+                        default :
+                            alert("Нет такой мат. операции");
+                    }
+                }
+                alert(mathOperation(12,13,"-"))
+            </script>
+            <script>
+                sum = prompt("Введите сколько денег вы желаете положить на счёт");
+                rubl = " рубл";
+                sum = String(sum);
+                if (sum.length !== "2"){
+                   switch (sum[sum.length - 1]){
+                    case "1":
+                        rubl += "ь";
+                        break;
+                    case "2":
+                    case "3":
+                    case "4":
+                        rubl += "я";
+                        break;
+                    case "0":
+                    case "5":
+                    case "6":
+                    case "7":
+                    case "8":
+                    case "9":
+                        rubl +="ей";
+                        break;
+                   }
+                } else {
+                    rubl +="ей";
+                }
+                alert("Ваша сумма в " + sum + rubl + " успешно зачислена.")
+            </script>
+        </body>
+    </html>
